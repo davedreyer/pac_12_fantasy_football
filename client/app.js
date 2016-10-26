@@ -22,15 +22,9 @@ app.config(function ($routeProvider) {
 	  controller: 'dashboardController',
 	})
 	.when('/leagues', {
-	  tem
-	  plateUrl: '/partials/leagues.html',
+	  templateUrl: '/partials/leagues.html',
 	  controller: 'dashboardController',
 	})
-	.when('/user/:id', {
-	  templateurl: '/partials/profile.html',
-	  controller: 'profileController'
-	})
-
 	.otherwise({
 	  redirectTo: '/'
 	});
