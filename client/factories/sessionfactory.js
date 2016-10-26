@@ -11,7 +11,7 @@ app.factory('sessionFactory', ["$http", "$location", function($http, $location){
 
 		$http.post('/registration', user).then(function(data){
 			if(data.data.status){
-				$location.url('/dashboard')
+				$location.url('/leagues')
 			}
 			else{
 				callback(data.data)

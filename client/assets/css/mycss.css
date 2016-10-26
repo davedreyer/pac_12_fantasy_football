@@ -12,3 +12,17 @@ body {
 .default{
 	margin-top: 100px;
 }
+
+.contentcontainer{
+	color: black;
+	padding: 20px;
+	border-radius: 20px;
+	background: #deefff; /* Old browsers */
+background: -moz-linear-gradient(top, cornflowerblue 0%, teal 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, cornflowerblue 0%, teal 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, cornflowerblue 0%,teal 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='cornflowerblue', endColorstr='teal',GradientType=0 );
+	border: 3px solid white;
+	min-height: 200px;
+
+}
