@@ -1,0 +1,20 @@
+
+<div class="login1">
+<h4>Login</h4>
+<hr>
+<form ng-submit="login()">
+
+Email <input type="text" class="form-control" ng-model="log.email"><br>
+Password <input type="text" class="form-control" ng-model="log.pw"><br><br>
+<input type="submit" value="Login" class="btn btn-sm btn-primary">
+</form>
+<br>
+
+<p>{{errors}}</p>
+<div ng-repeat="error in allerrors">
+<p>{{error}}</p>
+</div>
+<br><br>
+
+Not registered? Go to <a href="#/registration">Registration</a>
+</div>

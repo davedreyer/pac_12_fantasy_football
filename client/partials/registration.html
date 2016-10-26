@@ -1,0 +1,26 @@
+
+
+
+<div class="login1">
+
+<h4>Registration</h4>
+<hr>
+<form ng-submit="registration()">
+First Name <input type="text" class="form-control" ng-model="logReg.first_name"><br>
+Last Name <input type="text" class="form-control" ng-model="logReg.last_name"><br>
+Email <input type="text" class="form-control" ng-model="logReg.email"><br>
+Password <input type="text" class="form-control" ng-model="logReg.pw"><br>
+Password Confirmation <input type="text" class="form-control" ng-model="logReg.pwconfirm"><br><br>
+<input type="submit" value="Register" class="btn btn-sm btn-primary">
+
+</form>
+
+<br>
+<div ng-repeat="error in regerrors">
+<p>{{error}}</p>
+</div>
+<p>{{errors}}
+<br>
+Back to <a href="#/">Login</a>
+</div>
+
