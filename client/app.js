@@ -23,7 +23,7 @@ app.config(function ($routeProvider) {
 	})
 	.when('/leagues', {
 	  templateUrl: '/partials/leagues.html',
-	  controller: 'dashboardController',
+	  controller: 'leagueController',
 	})
 	.otherwise({
 	  redirectTo: '/'
