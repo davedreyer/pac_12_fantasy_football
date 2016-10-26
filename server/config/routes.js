@@ -5,6 +5,7 @@ var request = require('request');
 var mongoose = require('mongoose');
 var Player = mongoose.model('Player');
 var School = mongoose.model('School');
+var league= require('./../controllers/league.js')
 
 
 module.exports = function (app) {
@@ -20,6 +21,48 @@ module.exports = function (app) {
 	app.get('/logout', function(req, res){
 		users.logout(req, res)
 	});
+	app.post('/newLeague', league.new)
+	app.get('/leagues', league.getLeagues)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
 	app.get('/roster/create', function(req, res) {
 
 		// ['WAS','ARI','ASU','COL','ORS','UCLA','USC','CAL','ORE','WST','UTH','STA']

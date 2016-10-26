@@ -1,3 +1,26 @@
 <div class="default">
 leagues
 </div>
+
+<h3>find a league</h3>
+<table class="table table-bordered ">
+	<thead>
+		<tr>	
+			<th>League Name</th>
+			<th>Number of teams</th>
+			<th>actions</th>
+		 </tr>
+	</thead>
+	<tr ng-repeat='league in leagues'>
+		<th>{{league.name}}</th>
+		<th>{{league._users.length}}</th>
+		<th><button class="btn btn-sm btn-success " ng-click="joinLeague()">Join League</button></th>
+	</tr>
+</table>
+<div ng-repeat="error in allErrors">
+{{error}}
+</div>
+<form ng-submit='createLeague()'>
+	<label>League Name<input class="form-control" type="text" ng-model='newLeague.name' name=""></label>
+	<input class='btn btn-sm btn-danger' type="submit" value="Create League" name="">
+</form>
