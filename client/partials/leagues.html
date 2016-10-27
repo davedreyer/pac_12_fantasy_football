@@ -14,7 +14,7 @@ leagues
 	<tr ng-repeat='league in leagues'>
 		<th>{{league.name}}</th>
 		<th>{{league._users.length}}</th>
-		<th><button class="btn btn-sm btn-success " ng-click="joinLeague()">Join League</button></th>
+		<th><button class="btn btn-sm btn-success " ng-click="joinLeague(league._id)">Join League</button></th>
 	</tr>
 </table>
 <div ng-repeat="error in allErrors">

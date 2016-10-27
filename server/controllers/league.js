@@ -1,6 +1,7 @@
 var mongoose=require('mongoose')
 var League= mongoose.model('League')
 
+
 module.exports=(function(){
 	return{
 		new:function(req,res){
@@ -33,6 +34,27 @@ module.exports=(function(){
 					console.log(err)
 				}else{
 					res.json(returnedLeagues)
+				}
+			})
+		},
+
+
+		// may need modifications later
+		joinLeague: function(req, res){
+			League.findOne({_id: req.body.league}, function(err, league){
+				if (err){
+					console.log(err)
+				}
+				else{
+					league._users.push(req.body.user)
+					league.save(function (err, league){
+						if (err){
+							console.log(err)
+						}
+						else{
+							res.json(league)
+						}
+					})
 				}
 			})
 		}

@@ -23,7 +23,7 @@ module.exports = function (app) {
 	});
 	app.post('/newLeague', league.new)
 	app.get('/leagues', league.getLeagues)
-
+	app.put('/joinLeague', league.joinLeague)
 
 
 
