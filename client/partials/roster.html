@@ -1,0 +1,20 @@
+<h3>Roster!</h3>
+
+<table>
+	<tr>
+		<th>Full Name</th>
+		<th>Position</th>
+		<th>School Name</th>
+		<th>Experience</th>
+		<th>Weight</th>
+		<th>Height</th>
+	</tr>
+	<tr ng-repeat="player in roster">
+		<td>{{ player.name_full }}</td>
+		<td>{{ player.position }}</td>
+		<td>{{ player.school_name }}</td>
+		<td>{{ player.experience }}</td>
+		<td>{{ player.weight }}</td>
+		<td>{{ player.height }}</td>
+	</tr>
+</table>

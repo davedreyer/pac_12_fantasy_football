@@ -9,6 +9,10 @@ app.config(function ($routeProvider) {
 		templateUrl: 'partials/roster_create.html',
 		controller: 'pac12Controller',
 	})
+	.when('/roster/show_all', {
+		templateUrl: 'partials/roster.html',
+		controller: 'rosterController',
+	})
 	 .when('/registration', {
 	  templateUrl: '/partials/registration.html',
 	  controller: 'sessionController',

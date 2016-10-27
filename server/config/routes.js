@@ -20,6 +20,9 @@ module.exports = function (app) {
 	app.get('/logout', function(req, res){
 		users.logout(req, res)
 	});
+	app.get('/roster/show_all', function(req, res){
+		pac12.show_all(req, res)
+	});
 	app.get('/roster/create', function(req, res) {
 
 		// ['WAS','ARI','ASU','COL','ORS','UCLA','USC','CAL','ORE','WST','UTH','STA']
