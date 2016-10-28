@@ -29,6 +29,10 @@ app.config(function ($routeProvider) {
 	  templateUrl: '/partials/leagues.html',
 	  controller: 'leagueController',
 	})
+	.when('/myleague/:id', {
+	  templateUrl: '/partials/league.html',
+	  controller: 'leagueController',
+	})
 	.otherwise({
 	  redirectTo: '/'
 	});

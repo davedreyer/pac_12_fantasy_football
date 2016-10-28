@@ -1,0 +1,21 @@
+<div class="default">
+
+<h3>League Name: {{myleague.name}}</h3>
+Users in League:
+<div ng-repeat ="user in myleague._users track by $index">
+
+		<p>{{user}}</p>
+</div>
+Teams in League:
+<div ng-repeat ="team in myleague._teams track by $index">
+
+		<p>{{team}}</p>
+</div>
+<br><br>
+<form ng-submit="addTeamToLeague()">
+<label>
+<input type="text" class="form-control" ng-model="newTeam.name"></label>
+<br><br>
+<input type="submit" class=" btn btn-sm btn-danger" value="Add team to league">
+</form>
+</div>

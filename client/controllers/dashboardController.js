@@ -1,4 +1,4 @@
-app.controller('dashboardController', ['$scope', 'sessionFactory', "$location", "teamFactory", "leagueFactory", function($scope, sessionFactory, $location, teamFactory, leagueFactory){
+app.controller('dashboardController', ['$scope', 'sessionFactory', "$location", "teamFactory", "leagueFactory", '$routeParams', function($scope, sessionFactory, $location, teamFactory, leagueFactory, $routeParams){
 
 
 	sessionFactory.checkUser(function(data){
@@ -8,12 +8,9 @@ app.controller('dashboardController', ['$scope', 'sessionFactory', "$location", 
 		}
 
 
-		sessionFactory.getMyLeague($scope.currentUser._id, function(returnedLeague){
-			$scope.league = returnedLeague.data
-		})
 	})
-	
 
+	
 
 	
 

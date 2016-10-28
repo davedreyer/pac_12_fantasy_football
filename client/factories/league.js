@@ -18,6 +18,11 @@ app.factory('leagueFactory', ['$http', '$location', function($http, $location){
 				
 				) 
 		}
+		factory.getMyLeague=function(league_id, callback){
+			$http.get('/myleague/' + league_id).then(function(returnedleague){
+				callback(returnedleague)
+			})
+		}
 
 		
 

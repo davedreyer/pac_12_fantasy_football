@@ -39,7 +39,14 @@ module.exports=(function(){
 			})
 		},
 		getMyLeague:function(req,res){
-			
+			League.findOne({_id: req.params.id}, function(err, league){
+				if (err){
+					console.log(err)
+				}
+				else{
+					res.json(league)
+				}
+			})
 		},
 
 

@@ -8,7 +8,7 @@ var School = mongoose.model('School');
 var Game = mongoose.model('Game');
 var Stat = mongoose.model('Stat');
 var league= require('./../controllers/league.js')
-
+var teams = require('./../controllers/teams.js')
 
 module.exports = function (app) {
 	app.post('/registration', function(req, res){
@@ -26,9 +26,10 @@ module.exports = function (app) {
 	app.get('/roster/show_all', function(req, res){
 		pac12.show_all(req, res)
 	});
+	app.post('/leagues/addteam', teams.addTeamToLeague)
 	app.post('/newLeague', league.new)
 	app.get('/leagues', league.getLeagues)
-	app.get('/myleague', league.getMyLeague)
+	app.get('/myleague/:id', league.getMyLeague)
 	app.put('/joinLeague', league.joinLeague)
 	app.get('/stats/new', function (req, res) {
 		// Player.find({}, function (err,players) {

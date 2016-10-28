@@ -1,4 +1,4 @@
-app.controller('leagueController', function($scope, $location, leagueFactory, sessionFactory){
+app.controller('leagueController', function($scope, $location, leagueFactory, sessionFactory, $routeParams, teamFactory){
 	sessionFactory.checkUser(function(data){
 		$scope.currentUser = data.user;
 		if(!$scope.currentUser){
@@ -16,7 +16,7 @@ app.controller('leagueController', function($scope, $location, leagueFactory, se
 		}
 		if($scope.allErrors.length<1){
 
-			console.log('got here')
+		
 
 			$scope.newLeague.user=$scope.currentUser._id	
 			leagueFactory.createLeague($scope.newLeague, function(errors){
@@ -41,7 +41,15 @@ app.controller('leagueController', function($scope, $location, leagueFactory, se
 			$scope.leagues=returnedLeagues.data
 		})
 
-	
+	leagueFactory.getMyLeague($routeParams.id, function(returnedleague){
+		$scope.myleague = returnedleague.data
+	})
+
+	$scope.addTeamToLeague = function(){
+		$scope.newTeam._league = $routeParams.id
+		$scope.newTeam._user = $scope.currentUser._id
+		teamFactory.addTeam($scope.newTeam)
+	}
 	
 
 
