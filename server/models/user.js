@@ -7,6 +7,7 @@ var UserSchema = new Schema({
 	email: String,
 	pw: String,
 	_league: {type: Schema.Types.ObjectId, ref: 'League'},
+	_leaguename: String,
 	_team: {type: Schema.Types.ObjectId, ref: 'Team'},
 	
 

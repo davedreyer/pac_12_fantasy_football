@@ -17,4 +17,9 @@ app.controller('rosterController', ['$scope', 'sessionFactory', 'rosterFactory',
 
 	$scope.showRoster();
 
+	//$scope.addPlayerToTeam = function(id){
+		//$scope.addPlayer.player_id = id;
+	//	$scope.addPlayer
+	//}
+
 }]);

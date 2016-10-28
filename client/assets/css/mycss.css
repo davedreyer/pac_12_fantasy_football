@@ -20,7 +20,7 @@ body {
 }
 
 .contentcontainer{
-	color: black;
+	color: white;
 	padding: 20px;
 	border-radius: 20px;
 	background: #deefff; /* Old browsers */
@@ -32,3 +32,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='cornflowerblu
 	min-height: 200px;
 
 }
+	.contentcontainer a{
+		color: red;
+		text-decoration: underline;
+
+	}

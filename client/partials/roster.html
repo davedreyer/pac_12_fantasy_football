@@ -1,6 +1,6 @@
 <h3>Roster!</h3>
 
-<table>
+<table class="table table-bordered">
 	<tr>
 		<th>Full Name</th>
 		<th>Position</th>
@@ -8,6 +8,7 @@
 		<th>Experience</th>
 		<th>Weight</th>
 		<th>Height</th>
+		<th>Draft</th>
 	</tr>
 	<tr ng-repeat="player in roster">
 		<td>{{ player.name_full }}</td>
@@ -16,5 +17,7 @@
 		<td>{{ player.experience }}</td>
 		<td>{{ player.weight }}</td>
 		<td>{{ player.height }}</td>
+		<td><button class="btn btn-sm btn-success" ng-click="addPlayerToTeam(player._id)">Draft</button></td>
+
 	</tr>
 </table>

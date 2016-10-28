@@ -28,6 +28,7 @@ module.exports = function (app) {
 	});
 	app.post('/newLeague', league.new)
 	app.get('/leagues', league.getLeagues)
+	app.get('/myleague', league.getMyLeague)
 	app.put('/joinLeague', league.joinLeague)
 	app.get('/stats/new', function (req, res) {
 		// Player.find({}, function (err,players) {
