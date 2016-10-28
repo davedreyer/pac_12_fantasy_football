@@ -1,7 +1,13 @@
-body {
-    background-image: url("./../img/pac12.jpg");
-    	color: white;
-    }
+
+
+body { 
+    background: url("./../img/pac12.jpg") no-repeat center center fixed; 
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    color: white;
+}
 
 .login1{
 	margin-top: 100px;
