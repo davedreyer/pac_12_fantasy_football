@@ -16,10 +16,12 @@ app.controller('rosterController', ['$scope', 'sessionFactory', 'rosterFactory',
 	}
 
 	$scope.showRoster();
+	// console.log($scope.currentUser._team)
 
-	//$scope.addPlayerToTeam = function(id){
-		//$scope.addPlayer.player_id = id;
-	//	$scope.addPlayer
-	//}
+	$scope.addPlayerToTeam = function(id){
+
+		$scope.addPlayer.player_id = id;
+		// rosterFactory.addPlayerToTeam(id, )
+	}
 
 }]);

@@ -23,7 +23,20 @@ module.exports=(function(){
 								console.log(err)
 							}
 							else{
-								res.json(league)
+								User.findOne({_id:req.body._user}, function(err,user){
+									if(err){
+										console.log(err)
+									}else{
+										user._team=createdTeam
+										user.save(function(err,savedUser){
+											if(err){
+												console.log(err)
+											}else{
+												res.json(savedUser)
+											}
+										})
+									}
+								})
 							}
 						})
 					})
