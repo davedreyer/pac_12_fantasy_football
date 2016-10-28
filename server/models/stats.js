@@ -1,10 +1,10 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var StatSchema = new mongoose.Schema({
+var StatisticSchema = new mongoose.Schema({
 	player_id: {type: String, required: true},
-	touchdowns: {type: Number}
+	touchdowns: {type: Number, default: 0}
 }, { timestamps: {} })
 	
-mongoose.model('Stat', StatSchema);
-var Stat = mongoose.model('Stat');
+mongoose.model('Statistic', StatisticSchema);
+var Statistic = mongoose.model('Statistic');

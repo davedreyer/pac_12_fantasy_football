@@ -6,7 +6,8 @@ var mongoose = require('mongoose');
 var Player = mongoose.model('Player');
 var School = mongoose.model('School');
 var Game = mongoose.model('Game');
-var Stat = mongoose.model('Stat');
+var Statistic = mongoose.model('Statistic');
+var TeamPlayer = mongoose.model('TeamPlayer');
 var league= require('./../controllers/league.js')
 
 
@@ -29,19 +30,25 @@ module.exports = function (app) {
 	app.post('/newLeague', league.new)
 	app.get('/leagues', league.getLeagues)
 	app.put('/joinLeague', league.joinLeague)
+	// app.get('/stats/update', function (req,res) {
+	// 	Team.find({}, function (err, teams) {
+	// 		for ( let x = 0; x < teams.length; x++ ) {
+	// 			TeamPlayer.find({_team: teams[x]['_id']}, function (err,players) {
+	// 				var score = 0;
+	// 				for ( let y = 0; y < players.length; y++ ) {
+						
+	// 				}
+	// 			})
+	// 		}
+	// 	})
+	// })
 	app.get('/stats/new', function (req, res) {
-		// Player.find({}, function (err,players) {
+		
 			api_url = 'http://api.sportradar.us/ncaafb-t1/teams/WAS/2016/REG/statistics.json?api_key=krx53vewwkqe84rybsddvqn7';
 			request(api_url, function (err, response) {
 			if (err) {
 			} else {
 			var obj = JSON.parse(response.body);
-			// console.log(obj);
-			// console.log(obj['players']);
-			// console.log(obj['players'][0]['statistics']);
-			// console.log(obj['players'][obj['players'].length - 18]['statistics']);
-			 // console.log(obj['players'][obj['players'].length - 3]['statistics']);
-			
 
 			for (let x = 0; x < obj['players'].length; x++ ) {
 				
@@ -49,7 +56,7 @@ module.exports = function (app) {
 					
 					if (obj['players'][x]['position'] == 'QB' ) {
 						
-						Stat.findOne({player_id: obj['players'][x]['id']}, function (err, stat) {
+						Statistic.findOne({player_id: obj['players'][x]['id']}, function (err, stat) {
 							if (err) {	
 								console.log(err);
 							} else {
@@ -68,7 +75,11 @@ module.exports = function (app) {
 									})				  	
 								}
 								else {
-									Stat.create(
+
+									console.log(stat);
+									console.log(1);
+
+									Statistic.create(
 									{	player_id: obj['players'][x]['id'],
 										touchdowns: 
 										obj['players'][x]['statistics']['rushing']['td'] +
@@ -89,24 +100,24 @@ module.exports = function (app) {
 					else if (obj['players'][x]['position'] == 'WR' ||
 							 obj['players'][x]['position'] == 'RB')   {
 
-							Stat.findOne({player_id: obj['players'][x]['id']}, function (err, stat) {
+							Statistic.findOne({player_id: obj['players'][x]['id']}, function (err, stat) {
 							if (err) {
 								console.log(err);
 							} else {
 
+								var recTDs = 0;
+								var rushTDs = 0;
+
+								if (obj['players'][x]['statistics']['receiving']) {
+									recTDs = obj['players'][x]['statistics']['receiving']['td'];
+								}
+								if (obj['players'][x]['statistics']['rushing']) {
+									rushTDs = obj['players'][x]['statistics']['rushing']['td'];
+								}	
+
+								var totalTDs = recTDs + rushTDs;	
+
 								if (stat) {	
-
-									var recTDs = 0;
-									var rushTDs = 0;
-
-									if (obj['players'][x]['statistics']['receiving']) {
-										recTDs = obj['players'][x]['statistics']['receiving']['td'];
-									}
-									if (obj['players'][x]['statistics']['rushing']) {
-										rushTDs = obj['players'][x]['statistics']['rushing']['td'];
-									}	
-
-									var totalTDs = recTDs + rushTDs;
 
 									stat.touchdowns = totalTDs;
 
@@ -123,7 +134,10 @@ module.exports = function (app) {
 
 								else {
 
-									Stat.create(
+									console.log(stat);
+									console.log(2);	
+
+									Statistic.create(
 										{	player_id: obj['players'][x]['id'],
 											touchdowns: 
 											totalTDs

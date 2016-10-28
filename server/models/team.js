@@ -6,6 +6,7 @@ var TeamSchema = new mongoose.Schema({
 	_players: [{type: Schema.Types.ObjectId, ref: 'Player'}],
 	_user: {type: Schema.Types.ObjectId, ref: 'User'},
 	_league: {type: Schema.Types.ObjectId, ref: 'League'},
+	_score: {type: Number}
 }, { timestamps: {} })
 	
 mongoose.model('Team', TeamSchema);
