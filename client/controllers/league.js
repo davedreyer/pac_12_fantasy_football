@@ -48,7 +48,8 @@ app.controller('leagueController', function($scope, $location, leagueFactory, se
 	$scope.addTeamToLeague = function(){
 		$scope.newTeam._league = $routeParams.id
 		$scope.newTeam._user = $scope.currentUser._id
-		teamFactory.addTeam($scope.newTeam)
+
+		teamFactory.addTeamToLeague($scope.newTeam)
 	}
 	
 

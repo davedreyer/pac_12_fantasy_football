@@ -9,7 +9,8 @@ var factory = {};
 		});
 	}	
 	factory.addTeamToLeague = function(team){
-		$http.get('/leagues/addteam', team).then(function (returnedteam){
+		console.log('got here')
+		$http.post('/leagues/addteam', team).then(function (returnedteam){
 			console.log('success')
 		})
 	}

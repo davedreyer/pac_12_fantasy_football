@@ -18,8 +18,17 @@ module.exports=(function(){
 				else{
 					League.findOne({_id: req.body._league}, function(err, league){
 						league._teams.push(createdTeam)
-					}
+						league.save(function (err, league){
+							if (err){
+								console.log(err)
+							}
+							else{
+								res.json(league)
+							}
+						})
+					})
 				}
+		})
 		}
-						}
+	}
 })() //immediately invoked
