@@ -26,8 +26,9 @@ module.exports=(function(){
 								res.json(league)
 							}
 						})
-					}
+					})
 				}
+		})
 		}
-						}
+	}
 })() //immediately invoked
