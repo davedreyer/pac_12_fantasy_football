@@ -41,20 +41,24 @@ app.controller('leagueController', function($scope, $location, leagueFactory, se
 			$scope.leagues=returnedLeagues.data
 		})
 
+	$scope.viewLeague = function () {	
+
 	leagueFactory.getMyLeague($routeParams.id, function(returnedleague){
 		$scope.myleague = returnedleague.data
 	})
+
+	}
 
 	$scope.addTeamToLeague = function(){
 		$scope.newTeam._league = $routeParams.id
 		$scope.newTeam._user = $scope.currentUser._id
 
-		teamFactory.addTeamToLeague($scope.newTeam)
+		teamFactory.addTeamToLeague($scope.newTeam, function () {
+			$scope.viewLeague();
+		})
 	}
 	
-
-
-
+	$scope.viewLeague();
 
 
 })

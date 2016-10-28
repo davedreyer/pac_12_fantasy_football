@@ -10,8 +10,12 @@ app.controller('dashboardController', ['$scope', 'sessionFactory', "$location", 
 
 	})
 
-	
+	$scope.league = function () {
+		leagueFactory.getOneLeague(function(){
+			$scope.league();
+		})
+	}
 
-	
+	$scope.league();
 
 	}]);

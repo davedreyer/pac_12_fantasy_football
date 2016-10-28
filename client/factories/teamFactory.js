@@ -8,10 +8,11 @@ var factory = {};
 			callback(returnedRoster);
 		});
 	}	
-	factory.addTeamToLeague = function(team){
+	factory.addTeamToLeague = function(team, callback){
 		console.log('got here')
 		$http.post('/leagues/addteam', team).then(function (returnedteam){
 			console.log('success')
+			callback();
 		})
 	}
 
