@@ -8,7 +8,11 @@ var factory = {};
 			callback(returnedRoster);
 		});
 	}	
-
+	factory.addTeamToLeague = function(team){
+		$http.get('/leagues/addteam', team).then(function (returnedteam){
+			console.log('success')
+		})
+	}
 
 		return factory;
 }])
