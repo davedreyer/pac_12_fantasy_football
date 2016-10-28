@@ -33,5 +33,14 @@ app.factory('sessionFactory', ["$http", "$location", function($http, $location){
 		})
 	}
 
+	factory.getMyLeague=function(user_id, callback){
+
+			$http.get('/myleague', user_id).then(function(returnedLeague){
+				callback(returnedLeague)
+			}
+				
+				) 
+		}
+
 	return factory;
 }])

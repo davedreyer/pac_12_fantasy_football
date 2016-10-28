@@ -25,8 +25,9 @@ app.controller('leagueController', function($scope, $location, leagueFactory, se
 		}
 	}
 	$scope.join = {}
-	$scope.joinLeague=function(id){
-
+	$scope.joinLeague=function(id, leaguename){
+		console.log(leaguename)
+		$scope.join.leaguename = leaguename
 		$scope.join.league = id
 		$scope.join.user = $scope.currentUser._id
 

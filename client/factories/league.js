@@ -19,6 +19,8 @@ app.factory('leagueFactory', ['$http', '$location', function($http, $location){
 				) 
 		}
 
+		
+
 
 	return factory
 }])
