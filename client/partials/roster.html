@@ -1,5 +1,9 @@
-<h3>Roster!</h3>
-
+<div class="default"><h3>Roster!</h3>
+<label> <input class="form-control" type="text" placeholder="Search..." ng-model='query'></label>
+<br>
+<br>
+<br>
+<br>
 <table class="table table-bordered">
 	<tr>
 		<th>Full Name</th>
@@ -10,7 +14,7 @@
 		<th>Height</th>
 		<th>Draft</th>
 	</tr>
-	<tr ng-repeat="player in roster">
+	<tr ng-repeat="player in roster | filter: query | orderBy: 'position' ">
 		<td>{{ player.name_full }}</td>
 		<td>{{ player.position }}</td>
 		<td>{{ player.school_name }}</td>
@@ -21,3 +25,4 @@
 
 	</tr>
 </table>
+</div>
